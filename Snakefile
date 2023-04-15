@@ -1,3 +1,10 @@
+import platform
+
+if platform.system() == "Darwin" and system.processor() == "arm64":
+    import os
+    os.environ["CONDA_SUBDIR"] = "osx-64"
+    # Needed until https://github.com/conda-forge/julia-feedstock/pull/224 merges.
+
 rule julia_manifest:
     input: "Project.toml"
     output: "Manifest.toml"
