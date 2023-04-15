@@ -82,4 +82,7 @@ In `ms.tex`, we can define the corresponding figure as:
 \end{figure}
 ```
 
-Which will add a hyperlink to the script used to generate the figure.
+Which will add a hyperlink to the script used to generate the figure:
+
+<img width="480" alt="Screenshot 2023-04-15 at 3 01 17 PM" src="https://user-images.githubusercontent.com/7593028/232248663-88529984-b724-4daf-81d9-5383d14ff4dd.png">
+
