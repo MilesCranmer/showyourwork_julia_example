@@ -14,4 +14,4 @@ end
 p = plot(data, x=:x, y=:y, Geom.line)
 
 # Save:
-draw(PNG(output_fname, 10cm, 10cm), p)
+draw(PNG(output_fname, 10cm, 7.5cm), p)

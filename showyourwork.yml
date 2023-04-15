@@ -66,6 +66,7 @@ run_cache_rules_on_ci: false
 # Mapping of script file extensions to instructions for executing them
 scripts:
   py: python {script}
+  jl: julia {script}
 
 # Display of the `showyourwork` stamp on first page
 stamp:
