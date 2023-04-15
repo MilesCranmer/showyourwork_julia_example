@@ -1,6 +1,26 @@
+<p align="center">
+<a href="https://github.com/showyourwork/showyourwork">
+<img width = "450" src="https://raw.githubusercontent.com/showyourwork/.github/main/images/showyourwork.png" alt="showyourwork"/>
+</a>
+<br>
+<br>
+<a href="https://github.com/MilesCranmer/showyourwork_julia_example/actions/workflows/build.yml">
+<img src="https://github.com/MilesCranmer/showyourwork_julia_example/actions/workflows/build.yml/badge.svg?branch=main" alt="Article status"/>
+</a>
+<a href="https://github.com/MilesCranmer/showyourwork_julia_example/raw/main-pdf/arxiv.tar.gz">
+<img src="https://img.shields.io/badge/article-tarball-blue.svg?style=flat" alt="Article tarball"/>
+</a>
+<a href="https://github.com/MilesCranmer/showyourwork_julia_example/raw/main-pdf/ms.pdf">
+<img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
+</a>
+</p>
+
+An open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
+
+
 # Using Julia
 
-Fork this repo to easily use Julia in showyourwork. The following modifications were made to the default template:
+Fork this repo to easily use Julia in `showyourwork`. The following modifications were made to the default template:
 
 1. Defined `src/scripts/paths.jl`, replacing `src/scripts/paths.py` (just a convenience file which defines paths when you `include()` it).
 1. Created a `Project.toml` to define Julia dependencies.
@@ -46,25 +66,3 @@ end
 plot(data.x, data.y, label="sin(x)")
 savefig(output_fname)
 ```
-
-
----
-
-<p align="center">
-<a href="https://github.com/showyourwork/showyourwork">
-<img width = "450" src="https://raw.githubusercontent.com/showyourwork/.github/main/images/showyourwork.png" alt="showyourwork"/>
-</a>
-<br>
-<br>
-<a href="https://github.com/MilesCranmer/showyourwork_julia_example/actions/workflows/build.yml">
-<img src="https://github.com/MilesCranmer/showyourwork_julia_example/actions/workflows/build.yml/badge.svg?branch=main" alt="Article status"/>
-</a>
-<a href="https://github.com/MilesCranmer/showyourwork_julia_example/raw/main-pdf/arxiv.tar.gz">
-<img src="https://img.shields.io/badge/article-tarball-blue.svg?style=flat" alt="Article tarball"/>
-</a>
-<a href="https://github.com/MilesCranmer/showyourwork_julia_example/raw/main-pdf/ms.pdf">
-<img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
-</a>
-</p>
-
-An open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
