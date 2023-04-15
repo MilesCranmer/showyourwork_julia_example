@@ -2,8 +2,8 @@ using Plots
 using CSV
 using DataFrames
 
-input_fname = ARGS[1]
-output_fname = ARGS[2]
+input_fname = snakemake.input["data"]
+output_fname = snakemake.output[1]
 
 data = open(input_fname, "r") do io
     CSV.read(io, DataFrame)

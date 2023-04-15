@@ -1,26 +1,30 @@
 import platform
+import os
+
+os.environ["JULIA_PROJECT"] = "."
 
 if platform.system() == "Darwin" and platform.processor().startswith("arm"):
-    import os
     os.environ["CONDA_SUBDIR"] = "osx-64"
     # Needed until https://github.com/conda-forge/julia-feedstock/pull/224 merges.
+
+envvars:
+    "JULIA_PROJECT"
 
 rule julia_manifest:
     input: "Project.toml"
     output: "Manifest.toml"
-    shell: "julia --project=. -e 'using Pkg; Pkg.instantiate()'"
+    shell: "julia -e 'using Pkg; Pkg.instantiate()'"
 
 rule data:
-    input:
-        "src/scripts/data.jl",
-        "Manifest.toml"
+    input: "Manifest.toml"
     output: "src/data/mydata.csv"
-    shell: "julia --project=. {input[0]} {output}"
+    script: "src/scripts/data.jl"
 
 rule plot:
     input:
-        "src/scripts/plot.jl",
-        "src/data/mydata.csv",
-        "Manifest.toml"
+        "Manifest.toml",
+        data="src/data/mydata.csv",
+        # ^ Can name these for easier reference in the script.
+        # https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#julia
     output: "src/tex/figures/myplot.png"
-    shell: "julia --project=. {input[0]} {input[1]} {output}"
+    script: "src/scripts/plot.jl"
