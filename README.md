@@ -13,8 +13,42 @@ Fork this repo to easily use Julia in showyourwork. The following modifications 
   - `data` calls `data.jl`, and depends on `Manifest.toml`.
   - `plot` calls `plot.jl`, and depends on `mydata.csv` and `Manifest.toml`.
   
+
 These three Julia jobs are dependencies of the final rule, which compiles the LaTeX document using `tectonic`.
 The generated PDF and arXiv tarball will contain `myplot.png`.
+
+For example, the rule `plot`:
+
+```yaml
+rule plot:
+    input:
+        "Manifest.toml",
+        data="src/data/mydata.csv",
+        # ^ Can name these for easier reference in the script.
+        # https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#julia
+    output: "src/tex/figures/myplot.png"
+    script: "src/scripts/plot.jl"
+```
+
+the Julia script is able to reference the variable `snakemake`:
+
+```julia
+using Plots
+using CSV
+using DataFrames
+
+input_fname = snakemake.input["data"]
+output_fname = snakemake.output[1]
+
+data = open(input_fname, "r") do io
+    CSV.read(io, DataFrame)
+end
+
+# Plot x vs y:
+plot(data.x, data.y, label="sin(x)")
+savefig(output_fname)
+```
+
 
 ---
 
