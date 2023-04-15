@@ -51,7 +51,8 @@ rule plot:
 This Julia script is then able to reference the variable `snakemake`:
 
 ```julia
-using Plots
+using Gadfly
+using Cairo
 using CSV
 using DataFrames
 
@@ -63,6 +64,22 @@ data = open(input_fname, "r") do io
 end
 
 # Plot x vs y:
-plot(data.x, data.y, label="sin(x)")
-savefig(output_fname)
+p = plot(data, x=:x, y=:y, Geom.line)
+
+# Save:
+draw(PNG(output_fname, 10cm, 7.5cm), p)
 ```
+
+In `ms.tex`, we can define the corresponding figure as:
+
+```latex
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/myplot.png}
+    \caption{A figure.}
+    \label{fig:fig1}
+    \script{../scripts/plot.jl}
+\end{figure}
+```
+
+Which will add a hyperlink to the script used to generate the figure.
