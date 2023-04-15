@@ -11,6 +11,7 @@ Fork this repo to easily use Julia in showyourwork. The following modifications 
     - `julia_manifest` creates `Manifest.toml` from the `Project.toml`.
     - `data` calls `data.jl`, and depends on `Manifest.toml`.
     - `plot` calls `plot.jl`, and depends on `mydata.csv` and `Manifest.toml`.
+1. Configured `showyourwork.yml` to map `.jl` to `julia`.
   
 The `Snakefile` also defines the `JULIA_PROJECT` as `"."`.
 These three Julia jobs are dependencies of the final rule, which compiles the LaTeX document using `tectonic`.
