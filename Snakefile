@@ -1,11 +1,6 @@
-import platform
 import os
 
 os.environ["JULIA_PROJECT"] = "."
-
-if platform.system() == "Darwin" and platform.processor().startswith("arm"):
-    os.environ["CONDA_SUBDIR"] = "osx-64"
-    # Needed until https://github.com/conda-forge/julia-feedstock/pull/224 merges.
 
 envvars:
     "JULIA_PROJECT"

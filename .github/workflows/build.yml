@@ -14,6 +14,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install Julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: '1.8.5'
+
       - name: Build the article PDF
         id: build
         uses: showyourwork/showyourwork-action@v1
