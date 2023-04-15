@@ -1,5 +1,3 @@
-configfile: "config.yaml"
-
 rule julia_manifest:
     input: "Project.toml"
     output: "Manifest.toml"
