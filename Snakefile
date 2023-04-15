@@ -8,7 +8,7 @@ if platform.system() == "Darwin" and platform.processor().startswith("arm"):
 rule julia_manifest:
     input: "Project.toml"
     output: "Manifest.toml"
-    shell: "julia --project=. -e 'using Pkg; Pkg.instantiate()'"
+    shell: "julia --project=. -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()'"
 
 rule data:
     input:
