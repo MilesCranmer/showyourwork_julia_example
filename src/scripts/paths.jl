@@ -1,0 +1,27 @@
+"Exposes common paths useful for manipulating datasets and generating figures."
+
+using FilePathsBase: /, PosixPath
+
+# Absolute path to the top level of the repository
+root = PosixPath(@__DIR__) / ".." / ".."
+
+# Absolute path to the `src` folder
+src = root / "src"
+
+# Absolute path to the `src/data` folder (contains datasets)
+data = src / "data"
+
+# Absolute path to the `src/static` folder (contains static images)
+static = src / "static"
+
+# Absolute path to the `src/scripts` folder (contains figure/pipeline scripts)
+scripts = src / "scripts"
+
+# Absolute path to the `src/tex` folder (contains the manuscript)
+tex = src / "tex"
+
+# Absolute path to the `src/tex/figures` folder (contains figure output)
+figures = tex / "figures"
+
+# Absolute path to the `src/tex/output` folder (contains other user-defined output)
+output = tex / "output"
