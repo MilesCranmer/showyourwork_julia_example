@@ -1,3 +1,23 @@
+# Using Julia
+
+Fork this repo to easily use Julia in showyourwork. The following modifications were made to the default template:
+
+1. Defined `src/scripts/paths.jl`, replacing `src/scripts/paths.py` (just a convenience file which defines paths when you `include()` it).
+2. Added `julia=1.8.5` to the conda `environment.yml`.
+3. Created a `Project.toml` to define Julia dependencies.
+4. Created two example scripts in `src/scripts/`:
+  - `data.jl`, to create a dataset and save it to `mydata.csv`, and
+  - `plot.jl`, to plot the dataset and save it to `myplot.png`.
+5. Created three Snakemake rules:
+  - `julia_manifest` creates `Manifest.toml` from the `Project.toml`.
+  - `data` calls `data.jl`, and depends on `Manifest.toml`.
+  - `plot` calls `plot.jl`, and depends on `mydata.csv` and `Manifest.toml`.
+  
+These three Julia jobs are dependencies of the final rule, which compiles the LaTeX document using `tectonic`.
+The generated PDF and arXiv tarball will contain `myplot.png`.
+
+---
+
 <p align="center">
 <a href="https://github.com/showyourwork/showyourwork">
 <img width = "450" src="https://raw.githubusercontent.com/showyourwork/.github/main/images/showyourwork.png" alt="showyourwork"/>
