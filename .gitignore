@@ -13,3 +13,4 @@ src/tex/figures/*
 # Miscellaneous
 __pycache__
 *.synctex.gz
+Manifest.toml
