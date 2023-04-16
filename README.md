@@ -20,7 +20,8 @@ An open source scientific article created using the [showyourwork](https://githu
 
 # Using Julia
 
-Fork this repo to easily use Julia in `showyourwork`. The following modifications were made to the default template:
+Fork this repo to easily use Julia in `showyourwork`. The following modifications were made to the default template
+(You can also see this from the [Git diff](https://github.com/MilesCranmer/showyourwork_julia_example/compare/7dbfa577573dc8a02a9c225eb75547988684ac8c...main#files_bucket))
 
 1. Defined `src/scripts/paths.jl`, replacing `src/scripts/paths.py` (just a convenience file which defines paths when you `include()` it).
 1. Created a `Project.toml` to define Julia dependencies.
